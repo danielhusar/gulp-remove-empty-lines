@@ -10,7 +10,7 @@ npm install --save-dev gulp-remove-empty-lines
 
 ## Example
 
-```
+```javascript
 var gulp = require('gulp');
 var removeEmptyLines = require('gulp-remove-empty-lines');
 
