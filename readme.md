@@ -19,7 +19,6 @@ gulp.task('tojson', function () {
   .pipe(removeEmptyLines())
   .pipe(gulp.dest('./public/'));
 });
-
 ```
 
 ## Options
