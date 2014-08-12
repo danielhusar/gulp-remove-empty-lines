@@ -16,7 +16,8 @@ var removeEmptyLines = require('gulp-remove-empty-lines');
 
 gulp.task('tojson', function () {
   gulp.src('./public/*.html')
-  .pipe(removeEmptyLines());
+  .pipe(removeEmptyLines())
+  .pipe(gulp.dest('./public/'));
 });
 
 ```
