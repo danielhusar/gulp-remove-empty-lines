@@ -17,7 +17,7 @@ module.exports = function () {
     }
 
     try {
-      file.contents = new Buffer(file.contents.toString().replace(/(\s+|\t+)?(\r\n|\n|\r)/gm, ''));
+      file.contents = new Buffer(file.contents.toString().replace(/^\s*[\r\n]/gm, ''));
     } catch (err) {
       this.emit('error', new gutil.PluginError('gulp-remove-empty-lines', err));
     }

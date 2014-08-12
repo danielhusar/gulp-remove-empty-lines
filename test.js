@@ -8,15 +8,14 @@ it('Remove empty lines', function (cb) {
   var stream = removeEmptyLines();
 
   stream.on('data', function (file) {
-    console.log(file.contents.toString());
-    assert.equal(file.contents.toString(), 'testtest2');
+    assert.equal(file.contents.toString(), 'test\ntest2');
     cb();
   });
 
   stream.write(new gutil.File({
     base: __dirname,
     path: __dirname + '/index.html',
-    contents: new Buffer('test    \ntest2')
+    contents: new Buffer('test\n\n\ntest2')
   }));
 
   stream.end();
