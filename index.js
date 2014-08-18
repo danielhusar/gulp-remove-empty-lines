@@ -12,7 +12,7 @@ module.exports = function () {
     }
 
     if (file.isStream()) {
-      this.emit('error', new gutil.PluginError('gulp-to-json', 'Streaming not supported'));
+      this.emit('error', new gutil.PluginError('gulp-remove-empty-lines', 'Streaming not supported'));
       return cb();
     }
 
