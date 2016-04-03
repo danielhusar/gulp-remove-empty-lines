@@ -8,7 +8,7 @@ Remove empty lines from files.
 npm install --save-dev gulp-remove-empty-lines
 ```
 
-## Example
+## Usage
 
 ```javascript
 var gulp = require('gulp');
@@ -19,11 +19,24 @@ gulp.task('tojson', function () {
   .pipe(removeEmptyLines())
   .pipe(gulp.dest('./public/'));
 });
+
+gulp.task('htmlClean', function () {
+  gulp.src('./index.html')
+  .pipe(removeEmptyLines({
+    removeComments: true
+  }))
+  .pipe(gulp.dest('./public/'));
+});
 ```
 
 ## Options
 
-none
+##### removeComments
+
+Type: `boolean`  
+Default: `false`
+
+Remove all the comments from the html files.
 
 ## License
 
