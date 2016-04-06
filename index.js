@@ -1,11 +1,24 @@
 'use strict';
+
 var gutil = require('gulp-util');
 var through = require('through2');
 
-module.exports = function () {
+function clean(fileContent, fileExtension, options) {
+  fileContent = fileContent.toString() || null;
+  options = options || {};
 
-  return through.obj(function (file, enc, cb) {
+  if (fileExtension === 'html' && options.removeComments) {
+    fileContent = fileContent.replace(/<!--[^>]*-->/gm, '');
+  }
 
+  return fileContent.replace(/^\s*[\r\n]/gm, '');
+}
+
+function removeEmptyLines(options) {
+  var fileExtension;
+  options = options || {};
+
+  return through.obj(function(file, enc, cb) {
     if (file.isNull()) {
       this.push(file);
       return cb();
@@ -17,13 +30,15 @@ module.exports = function () {
     }
 
     try {
-      file.contents = new Buffer(file.contents.toString().replace(/^\s*[\r\n]/gm, ''));
+      fileExtension = file.path.split('.').pop();
+      file.contents = new Buffer(clean(file.contents, fileExtension, options));
     } catch (err) {
       this.emit('error', new gutil.PluginError('gulp-remove-empty-lines', err));
     }
 
     this.push(file);
     return cb();
-
   });
-};
+}
+
+module.exports = removeEmptyLines;

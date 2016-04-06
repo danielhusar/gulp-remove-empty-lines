@@ -1,14 +1,22 @@
 {
   "name": "gulp-remove-empty-lines",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Remove empty lines.",
   "license": "MIT",
-  "repository": "danielhusar/gulp-remove-empty-lines",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/danielhusar/gulp-remove-empty-lines.git"
+  },
   "author": {
     "name": "Daniel Husar",
     "email": "dano.husar@gmail.com",
     "url": "https://github.com/danielhusar"
   },
+  "contributors":[{
+    "name": "andreasonny83",
+    "email": "andreasonny83@gmail.com",
+    "url": "https://github.com/andreasonny83"
+  }],
   "engines": {
     "node": ">=0.10.0"
   },
@@ -28,6 +36,5 @@
   },
   "devDependencies": {
     "mocha": "^1.19.0"
-  },
-  "readmeFilename": "readme.md"
+  }
 }
