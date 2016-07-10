@@ -11,6 +11,10 @@ function clean(fileContent, fileExtension, options) {
     fileContent = fileContent.replace(/<!--[^>]*-->/gm, '');
   }
 
+  if (options.removeSpaces) {
+    fileContent = fileContent.replace(/\s\s+/g, ' ');
+  }
+
   return fileContent.replace(/^\s*[\r\n]/gm, '');
 }
 
