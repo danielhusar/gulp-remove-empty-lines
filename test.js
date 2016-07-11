@@ -54,3 +54,20 @@ it('Does not remove html comments from javascript files', function (cb) {
 
   stream.end();
 });
+
+it('Remove duplicate spaces', function (cb) {
+  var stream = removeEmptyLines({removeSpaces: true});
+
+  stream.on('data', function (file) {
+    assert.equal(file.contents.toString(), 'test space\ntest2 space\ntest3 space');
+    cb();
+  });
+
+  stream.write(new gutil.File({
+    base: __dirname,
+    path: __dirname + '/index.html',
+    contents: new Buffer('test space\ntest2  space\ntest3   space')
+  }));
+
+  stream.end();
+});

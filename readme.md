@@ -33,10 +33,17 @@ gulp.task('htmlClean', function () {
 
 ##### removeComments
 
-Type: `boolean`  
+Type: `boolean`
 Default: `false`
 
 Remove all the comments from the html files.
+
+##### removeSpaces
+
+Type: `boolean`
+Default: `false`
+
+Remove all duplicate spaces from any file.
 
 ## License
 
