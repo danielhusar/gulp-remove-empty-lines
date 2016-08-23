@@ -7,7 +7,7 @@ function clean(fileContent, fileExtension, options) {
   fileContent = fileContent.toString() || null;
   options = options || {};
 
-  if (fileContents === null || fileContents === '') {
+  if (fileContent === null || fileContent === '') {
     return '';
   }
 
