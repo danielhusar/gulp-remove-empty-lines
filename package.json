@@ -1,6 +1,6 @@
 {
   "name": "gulp-remove-empty-lines",
-  "version": "0.0.5",
+  "version": "0.0.6",
   "description": "Remove empty lines.",
   "license": "MIT",
   "repository": {
