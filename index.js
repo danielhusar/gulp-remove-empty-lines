@@ -7,6 +7,10 @@ function clean(fileContent, fileExtension, options) {
   fileContent = fileContent.toString() || null;
   options = options || {};
 
+  if (fileContent === null || fileContent === '') {
+    return '';
+  }
+
   if (fileExtension === 'html' && options.removeComments) {
     fileContent = fileContent.replace(/<!--[^>]*-->/gm, '');
   }
