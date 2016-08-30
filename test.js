@@ -71,3 +71,20 @@ it('Remove duplicate spaces', function (cb) {
 
   stream.end();
 });
+
+it('Not throw for empty files', function (cb) {
+  var stream = removeEmptyLines({removeSpaces: true});
+
+  stream.on('data', function (file) {
+    assert.equal(file.contents.toString(), '');
+    cb();
+  });
+
+  stream.write(new gutil.File({
+    base: __dirname,
+    path: __dirname + '/index.html',
+    contents: new Buffer('')
+  }));
+
+  stream.end();
+});
