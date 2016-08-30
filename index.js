@@ -4,7 +4,7 @@ var gutil = require('gulp-util');
 var through = require('through2');
 
 function clean(fileContent, fileExtension, options) {
-  fileContent = fileContent.toString() || null;
+  fileContent = fileContent.toString() || '';
   options = options || {};
 
   if (fileExtension === 'html' && options.removeComments) {
