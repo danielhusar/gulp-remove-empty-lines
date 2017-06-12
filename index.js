@@ -11,7 +11,7 @@ function clean(fileContent, fileExtension, options) {
     return '';
   }
 
-  if (fileExtension === 'html' && options.removeComments) {
+  if ( (fileExtension === 'html' || fileExtension === 'php') && options.removeComments) {
     fileContent = fileContent.replace(/<!--[^>]*-->/gm, '');
   }
 
