@@ -1,4 +1,4 @@
-# [gulp](http://gulpjs.com)-remove-empty-lines [![Build Status](https://secure.travis-ci.org/danielhusar/gulp-remove-empty-lines.svg?branch=master)](http://travis-ci.org/danielhusar/gulp-remove-empty-lines)
+# [gulp](https://gulpjs.com)-remove-empty-lines [![Build Status](https://secure.travis-ci.org/danielhusar/gulp-remove-empty-lines.svg?branch=master)](https://travis-ci.org/danielhusar/gulp-remove-empty-lines)
 
 Remove empty lines from files.
 
