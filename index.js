@@ -1,6 +1,6 @@
 'use strict';
 
-var gutil = require('gulp-util');
+var PluginError = require('plugin-error');
 var through = require('through2');
 
 function clean(fileContent, fileExtension, options) {
@@ -33,7 +33,7 @@ function removeEmptyLines(options) {
     }
 
     if (file.isStream()) {
-      this.emit('error', new gutil.PluginError('gulp-remove-empty-lines', 'Streaming not supported'));
+      this.emit('error', new PluginError('gulp-remove-empty-lines', 'Streaming not supported'));
       return cb();
     }
 
@@ -41,7 +41,7 @@ function removeEmptyLines(options) {
       fileExtension = file.path.split('.').pop();
       file.contents = new Buffer(clean(file.contents, fileExtension, options));
     } catch (err) {
-      this.emit('error', new gutil.PluginError('gulp-remove-empty-lines', err));
+      this.emit('error', new PluginError('gulp-remove-empty-lines', err));
     }
 
     this.push(file);

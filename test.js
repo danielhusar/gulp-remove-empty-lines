@@ -1,7 +1,7 @@
 'use strict';
 
 var assert = require('assert');
-var gutil = require('gulp-util');
+var Vinyl = require('vinyl');
 var removeEmptyLines = require('./index');
 
 it('Remove empty lines', function (cb) {
@@ -12,7 +12,7 @@ it('Remove empty lines', function (cb) {
     cb();
   });
 
-  stream.write(new gutil.File({
+  stream.write(new Vinyl({
     base: __dirname,
     path: __dirname + '/index.html',
     contents: new Buffer('test\n\n\ntest2')
@@ -29,7 +29,7 @@ it('Remove html comments', function (cb) {
     cb();
   });
 
-  stream.write(new gutil.File({
+  stream.write(new Vinyl({
     base: __dirname,
     path: __dirname + '/index.html',
     contents: new Buffer('test\ntest2\n\n<!-- comment -->\nhowdy')
@@ -46,7 +46,7 @@ it('Does not remove html comments from javascript files', function (cb) {
     cb();
   });
 
-  stream.write(new gutil.File({
+  stream.write(new Vinyl({
     base: __dirname,
     path: __dirname + '/script.js',
     contents: new Buffer('\n\n(function() {\n\nvar comment = \'<!-- comment -->\'\n})();')
@@ -63,7 +63,7 @@ it('Remove duplicate spaces', function (cb) {
     cb();
   });
 
-  stream.write(new gutil.File({
+  stream.write(new Vinyl({
     base: __dirname,
     path: __dirname + '/index.html',
     contents: new Buffer('test space\ntest2  space\ntest3   space')
@@ -80,7 +80,7 @@ it('Not throw for empty files', function (cb) {
     cb();
   });
 
-  stream.write(new gutil.File({
+  stream.write(new Vinyl({
     base: __dirname,
     path: __dirname + '/index.html',
     contents: new Buffer('')
